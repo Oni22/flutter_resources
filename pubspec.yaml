@@ -10,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  build: ^1.2.2
+  build_config: ^0.4.2
+  build_runner: ^1.8.0
 
 dev_dependencies:
   flutter_test:

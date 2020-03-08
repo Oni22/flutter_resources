@@ -1,7 +1,5 @@
 library multilang;
+import 'package:build/build.dart';
+import 'package:multilang/src/generator.dart';
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+Builder resourceBuilder(BuilderOptions options) => ResourceBuilder();

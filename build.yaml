@@ -1,0 +1,8 @@
+builders:
+  resourceBuilder:
+    target: resourceBuilder
+    import: "package:multilang/multilang.dart"
+    builder_factories: ["resourceBuilder"]
+    build_extensions: {'.xml':['.res.dart']}
+    auto_apply: root_package
+    build_to: source
