@@ -1,6 +1,6 @@
 <resource>
-    <string name="test_string_one">NUbMER ONE</string>
-    <string name="test_string_two">NUbMER two</string>
+    <string name="test_string_one" lang="en">Hallo,</string>
+    <string name="test_string_one" lang="de">NUbMER two</string>
     <string name="test_string_the">NUbMER three</string>
     <string name="test_string_for">NUbMER four</string>
     <string name="test_string_fora">Lul four</string>

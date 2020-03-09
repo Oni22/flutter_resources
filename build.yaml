@@ -1,8 +1,8 @@
 builders:
   resourceBuilder:
     target: resourceBuilder
-    import: "package:multilang/multilang.dart"
+    import: "package:flutter_resources/flutter_resources.dart"
     builder_factories: ["resourceBuilder"]
-    build_extensions: {'.xml':['.res.dart']}
+    build_extensions: {'.fr':['.res.dart']}
     auto_apply: root_package
     build_to: source

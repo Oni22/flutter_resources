@@ -1,23 +1,19 @@
-import 'package:flutter/widgets.dart';
-import 'package:multilang/multilang.dart';
+// import 'package:flutter/widgets.dart';
 
-class RProvider extends InheritedWidget {
+// class RProvider extends InheritedWidget {
 
-  final Widget child;
-  final BaseR Function() onSelectLanguage;
+//   final Widget child;
 
-  RProvider({this.child,this.onSelectLanguage}) : super(child: child);
+//   RProvider({this.child}) : super(child: child);
 
-  @override
-  bool updateShouldNotify(InheritedWidget oldWidget) {
-    return null;
-  }
+//   @override
+//   bool updateShouldNotify(InheritedWidget oldWidget) {
+//     return null;
+//   }
 
-  BaseR get string => onSelectLanguage();
+//   static RProvider of(BuildContext context) => context.dependOnInheritedWidgetOfExactType() as RProvider;
+// }
 
-  static RProvider of(BuildContext context) => context.dependOnInheritedWidgetOfExactType() as RProvider;
-}
-
-test() {
+// test() {
  
-}
+// }
