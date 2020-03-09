@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:build/build.dart';
+import 'package:multilang/src/base_r.dart';
 import 'package:xml/xml.dart' as xml;
 
 //https://www.youtube.com/watch?time_continue=840&v=H4HWB2Pmgcw&feature=emb_title
@@ -14,7 +15,7 @@ class ResourceBuilder extends Builder {
     final String contents = await buildStep.readAsString(buildStep.inputId);
     var parsedXML = xml.parse(contents);
     
-    String finalContent = "class R {\n";
+    String finalContent = "import 'package:multilang/multilang.dart';\nclass R extends BaseR {\n";
     
     parsedXML.findAllElements("string").forEach((node) {
       print(node.toString());
@@ -26,4 +27,3 @@ class ResourceBuilder extends Builder {
   }
 
 }
- 
