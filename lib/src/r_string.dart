@@ -14,7 +14,7 @@ class RString {
   String setTextParams(List<dynamic> params) {
     var paramsText = "";
     params.forEach((p) {
-      paramsText = text.replaceAll("%${params.indexOf(p) + 1}", "$p");
+      paramsText = text.replaceAll("%${params.indexOf(p) + 1}p", "$p");
     });
     return paramsText;
   }
