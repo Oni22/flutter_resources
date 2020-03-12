@@ -12,9 +12,9 @@ class RString {
   String get text => langs[RService.languageCode];
 
   String setTextParams(List<dynamic> params) {
-    var paramsText = "";
+    var paramsText = text;
     params.forEach((p) {
-      paramsText = text.replaceAll("%${params.indexOf(p) + 1}p", "$p");
+      paramsText = paramsText.replaceAll("%${params.indexOf(p) + 1}p", "$p");
     });
     return paramsText;
   }
