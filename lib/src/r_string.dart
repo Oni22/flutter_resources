@@ -17,7 +17,7 @@ class RString {
     var paramPartText = text.split("p");
 
     paramPartText.forEach((p) {
-      paramsText += p.replaceAll("%${params.indexOf(p) + 1}", "${params[params.indexOf(p)]}");
+      paramsText += p.replaceAll("%${paramPartText.indexOf(p) + 1}", "${params[paramPartText.indexOf(p)]}");
     });
 
     return paramsText;
