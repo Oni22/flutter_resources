@@ -13,13 +13,9 @@ class RString {
 
   String setTextParams(List<dynamic> params) {
     var paramsText = "";
-
-    var paramPartText = text.split("p");
-
-    paramPartText.forEach((p) {
-      paramsText += p.replaceAll("%${paramPartText.indexOf(p) + 1}", "${params[paramPartText.indexOf(p)]}");
+    params.forEach((p) {
+      paramsText = text.replaceAll("%${params.indexOf(p) + 1}", "$p");
     });
-
     return paramsText;
   }
   
