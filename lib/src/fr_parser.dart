@@ -10,22 +10,35 @@ class FRParser {
   List<RString> strings = [];
 
   FRParser.toRStrings(String frData) {
-    var frs = frData.split("},");
+    var idBlocks = frData.split("},");
 
-    frs.forEach((fr) {
-      var frSplitted = fr.split("{");
-      var name = frSplitted[0].trim();
-      var langList = frSplitted[1].replaceAll("},", "").replaceAll("}","").trim().split(",").map((lang) {
-          var splittedLang = lang.split(":");
-          var langCode = splittedLang[0].trim();
-          var text = splittedLang[1].trim();
+    idBlocks.forEach((block) {
+      var blockNameLangs = block.split("{");
+      var name = blockNameLangs[0].trim();
+
+      var langList = blockNameLangs[1].replaceAll("}","").trim().split(RegExp(r"(,)(?![^[]*\])")).map((lang) {
+        print(lang);
+          var langCodeText = lang.split(":");
+          var langCode = langCodeText[0].trim();
+          var text = langCodeText[1].trim();
           return {"code": langCode,"text": text};
       }).toList();
+
       var map = Map<String,String>();
+      var pluralMap = Map<String,List<String>>();
+      
       langList.forEach((item) {
-        map["\"${item["code"]}\""] = "\"${item["text"]}\"";
+        var text =  item["text"];
+        var langCode =  item["code"];
+
+        if(text.startsWith("[") && text.endsWith("]")) {
+            var plurals = text.replaceAll("[", "").replaceAll("]", "").trim().split(",");
+            pluralMap["\"$langCode\""] = plurals;
+        } else {
+           map["\"$langCode\""] = text;
+        }
       });
-      strings.add(RString(langs: map,name: name));
+      strings.add(RString(langs: map,name: name,plurals: pluralMap));
     });
   }
 

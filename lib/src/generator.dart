@@ -7,11 +7,11 @@ import 'package:xml/xml.dart' as xml;
 class ResourceBuilder extends Builder {
 
   @override
-  Map<String, List<String>> get buildExtensions => const <String, List<String>>{'.fr' : <String>['.res.dart']};
+  Map<String, List<String>> get buildExtensions => const <String, List<String>>{'.fson' : <String>['.fson.dart']};
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
-    final AssetId output = buildStep.inputId.changeExtension(".res.dart");
+    final AssetId output = buildStep.inputId.changeExtension(".fson.dart");
     final String contents = await buildStep.readAsString(buildStep.inputId);
     //var parsedXML = xml.parse(contents);
     
@@ -20,7 +20,7 @@ class ResourceBuilder extends Builder {
     var frParser = FRParser.toRStrings(contents);
 
     frParser.strings.forEach((r) {
-      finalContent += "\tstatic RString ${r.name} = RString(langs: ${r.langs.toString()} ,name: \"${r.name}\");\n";
+      finalContent += "\tstatic RString ${r.name} = RString(langs: ${r.langs.toString()} ,name: \"${r.name}\", plurals: ${r.plurals});\n";
     });
     
     //parsedXML.findAllElements("string").forEach((node) {
