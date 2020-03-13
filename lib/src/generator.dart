@@ -20,7 +20,7 @@ class ResourceBuilder extends Builder {
     var frParser = FRParser.toRStrings(contents);
 
     frParser.strings.forEach((r) {
-      finalContent += "\tstatic RString ${r.name} = RString(langs: ${r.langs.toString()} ,name: \"${r.name}\", plurals: ${r.plurals});\n";
+      finalContent += "\tstatic RString ${r.name} = RString(langs: ${r.langs.toString()} ,name: \"${r.name}\");\n";
     });
     
     //parsedXML.findAllElements("string").forEach((node) {
